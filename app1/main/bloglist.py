@@ -11,6 +11,7 @@ def bloglist():
     jsontext = []
     for data in datas:
         jsondata = {}
+        #这句可以不要
         #blog = Blog('','')
         blog = data
         jsondata["blogtopic"] = blog.blogtopic
