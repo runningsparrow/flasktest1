@@ -14,6 +14,7 @@ def bloglist():
         #这句可以不要
         #blog = Blog('','')
         blog = data
+        jsondata["blogid"] = blog.blodid
         jsondata["blogtopic"] = blog.blogtopic
         jsondata["blogcontent"] = blog.blogcontent
         jsontext.append(jsondata)

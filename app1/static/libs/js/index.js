@@ -8,7 +8,9 @@ $(document).ready(
             success:function(data){
                 console.log(data)
                 $.each(data, function (index, item) {
-                    $("#bloglist").append("<div class='col-md-12'><h2 class='page-header'>" + data[index].blogtopic + "</h2><p>"+data[index].blogcontent+"</p></div>")
+                    $("#bloglist").append("<div class='col-md-12'><h2 class='page-header'>" + data[index].blogtopic + "</h2><p>"+data[index].blogcontent+"</p></div>"+
+                    "<div class='col-md-12'><button class='btn btn-info revbtn'>修改</button> <button class='btn btn-info' id>删除</button><input type='hidden' value='"+
+                    data[index].blogid+"'></div>")
                 })
             },
             error:function(data){
@@ -36,4 +38,27 @@ $(document).on('click','#btnaddblog',function(){
         }
       });
 });
+
+$(document).on('click','.revbtn',function(){
+    console.log($(this).parent().find('input').val())
+    blogid = $(this).parent().find('input').val()
+    $.ajax({
+        url: "http://localhost:5000/revblog",
+        type: "GET",
+        // contentType: 'application/json',
+        // data:"{}",
+        // dataType: "JSON",
+        success:function(data){
+            console.log(data)
+            console.log(blogid)
+            window.location.href="http://localhost:5000/revblog?blogid="+blogid;
+        },
+        error:function(jqXHR, textStatus, errorThrown){
+            console.log(errorThrown)
+            alert("内容获取错误")
+        }
+    });
+});
+
+
 
