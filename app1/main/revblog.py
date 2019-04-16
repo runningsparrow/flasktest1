@@ -10,10 +10,29 @@ from app1 import db
 def revblog():
     if request.method == 'POST':
         print("POST")
-        return render_template("revblog.html")
+        # return render_template("revblog.html")
+        blogid = request.args.get("blogid")
+        if blogid == None:
+            pass
+            return null
+        else:
+            print(blogid)
+            #query 
+            data = Blog.query.filter_by(blodid=blogid).first()
+            print(data)
+            print(data.blogtopic)
+            context={
+                'blogid':data.blodid,
+                'blogtopic':data.blogtopic,
+                'blogcontent':data.blogcontent
+            }
+            return Response(json.dumps(context))
+
     if request.method == 'GET':
         print("GET")
         blogid = request.args.get("blogid")
+        blogtopic = request.args.get("blogtopic")
+        blogcontent = request.args.get("blogcontent")
         if blogid == None:
             pass
             return render_template("revblog.html")
@@ -29,4 +48,5 @@ def revblog():
                 'blogcontent':data.blogcontent
             }
             return render_template("revblog.html",**context)
+            # return Response(json.dumps(context))
         

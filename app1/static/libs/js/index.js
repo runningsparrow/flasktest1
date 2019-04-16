@@ -40,24 +40,9 @@ $(document).on('click','#btnaddblog',function(){
 });
 
 $(document).on('click','.revbtn',function(){
-    console.log($(this).parent().find('input').val())
+    // console.log($(this).parent().find('input').val())
     blogid = $(this).parent().find('input').val()
-    $.ajax({
-        url: "http://localhost:5000/revblog",
-        type: "GET",
-        // contentType: 'application/json',
-        // data:"{}",
-        // dataType: "JSON",
-        success:function(data){
-            console.log(data)
-            console.log(blogid)
-            window.location.href="http://localhost:5000/revblog?blogid="+blogid;
-        },
-        error:function(jqXHR, textStatus, errorThrown){
-            console.log(errorThrown)
-            alert("内容获取错误")
-        }
-    });
+    window.location.href="http://localhost:5000/revblog?blogid="+blogid
 });
 
 
