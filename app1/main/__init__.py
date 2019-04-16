@@ -3,6 +3,6 @@ from flask import Blueprint
 main = Blueprint('main', __name__)
 
 #将views 和 error 引入进蓝图
-from . import index, errors, register, addblog, bloglist, revblog
+from . import index, errors, register, addblog, bloglist, revblog, delblog
 
 
