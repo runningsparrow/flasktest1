@@ -27,6 +27,7 @@ def revblog():
                 'blogcontent':data.blogcontent
             }
             return Response(json.dumps(context))
+            # return render_template("revblog.html",**context)
 
     if request.method == 'GET':
         print("GET")

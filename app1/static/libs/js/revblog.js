@@ -19,7 +19,7 @@ $(document).ready(
             blogid = data["blogid"]
             blogtopic = data["blogtopic"]
             blogcontent = data["blogcontent"]
-            $("#blogid").val(blogid)
+            $("#blogid").val(blogid)    
             $("#blogtopic").val(blogtopic)
             $("#blogcontent").val(blogcontent)
         },
