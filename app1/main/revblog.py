@@ -75,4 +75,5 @@ def revblog():
             }
             return render_template("revblog.html",**context)
             # return Response(json.dumps(context))
+            
         
