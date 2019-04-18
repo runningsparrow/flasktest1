@@ -1,4 +1,4 @@
-1 首先在目标的 windows环境安装与源windows机器相同的 python版本,配置好环境变量
+1 首先在目标的 windows环境安装与源windows机器相同的 python版本(本例使用3.7.2),配置好环境变量
   然后安装 virtualenv
   参考安装语句  pip install virtualenv 
 
