@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="witdh=device-width, initial-scale=1.0">
+    <title>{% block headtitle %}{% endblock %}</title>
+    <link href="../static/libs/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="../static/libs/bower_components/bootstrap-treeview/src/css/bootstrap-treeview.css">
+    {% block selfcss%} {% endblock %}
+</head>
+<body>
+<div>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">   
+        <ul class="nav">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">菜单</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">主页</a>
+                    <a class="dropdown-item" href="#">添加</a>
+                </div>
+            </li>    
+            <li class="nav-item">
+                <a class="nav-link" href="#">主页</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">添加</a>
+            </li>
+        </ul> 
+    </div>
+</nav>    
+</div>
+<div class="row">
+<div class="col-md-2">
+<div id="tree">
+</div>
+</div>
+<div class="col-md-10">
+<div class="container">
+    {% block mainbody %}{% endblock %}
+</div>
+</div>
+</div>
+<script src="../static/libs/node_modules/jquery/dist/jquery.js"></script>
+<script src="../static/libs/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script src="../static/libs/bower_components/bootstrap-treeview/src/js/bootstrap-treeview.js"></script>
+<script src="../static/libs/js/base.js"></script>
+
+{% block selfjs %}{% endblock %}
+</body>
+
+</html>
