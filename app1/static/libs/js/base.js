@@ -144,14 +144,16 @@ $(document).ready(
 
 $(document).on('click','#adropindex',function(){
   $.ajax({
-      url: "http://localhost:5000/",
+      // url: "http://localhost:5000/",
+      url: "./",
       type: "GET",
       // contentType: 'application/json',
       // data:"{}",
       // dataType: "JSON",
       success:function(data){
           console.log(data)
-          window.location.href="http://localhost:5000/";
+          // window.location.href="http://localhost:5000/";
+          window.location.href="./";
       },
       error:function(jqXHR, textStatus, errorThrown){
           console.log(errorThrown)
@@ -162,14 +164,16 @@ $(document).on('click','#adropindex',function(){
 
 $(document).on('click','#adropaddblog',function(){
   $.ajax({
-      url: "http://localhost:5000/addblog",
+      // url: "http://localhost:5000/addblog",
+      url: "./addblog",
       type: "GET",
       // contentType: 'application/json',
       // data:"{}",
       // dataType: "JSON",
       success:function(data){
           console.log(data)
-          window.location.href="http://localhost:5000/addblog";
+          // window.location.href="http://localhost:5000/addblog";
+          window.location.href="./addblog";
       },
       error:function(jqXHR, textStatus, errorThrown){
           console.log(errorThrown)
@@ -180,14 +184,16 @@ $(document).on('click','#adropaddblog',function(){
 
 $(document).on('click','#navindex',function(){
   $.ajax({
-      url: "http://localhost:5000/",
+      // url: "http://localhost:5000/",
+      url: "./",
       type: "GET",
       // contentType: 'application/json',
       // data:"{}",
       // dataType: "JSON",
       success:function(data){
           console.log(data)
-          window.location.href="http://localhost:5000/";
+          // window.location.href="http://localhost:5000/";
+          window.location.href="./";
       },
       error:function(jqXHR, textStatus, errorThrown){
           console.log(errorThrown)
@@ -198,14 +204,16 @@ $(document).on('click','#navindex',function(){
 
 $(document).on('click','#navaddblog',function(){
   $.ajax({
-      url: "http://localhost:5000/addblog",
+      // url: "http://localhost:5000/addblog",
+      url: "./addblog",
       type: "GET",
       // contentType: 'application/json',
       // data:"{}",
       // dataType: "JSON",
       success:function(data){
           console.log(data)
-          window.location.href="http://localhost:5000/addblog";
+          // window.location.href="http://localhost:5000/addblog";
+          window.location.href="./addblog";
       },
       error:function(jqXHR, textStatus, errorThrown){
           console.log(errorThrown)

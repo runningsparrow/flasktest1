@@ -1,7 +1,9 @@
 $(document).ready(
     function () {
         $.ajax({
-            url: "http://localhost:5000/bloglist",
+            // url: "http://localhost:5000/bloglist",
+            // url:"./bloglist",
+            url:"/bloglist",
             type: "GET",
             // data: data,
             dataType: "JSON",
@@ -23,14 +25,16 @@ $(document).ready(
 
 $(document).on('click','#btnaddblog',function(){
     $.ajax({
-        url: "http://localhost:5000/addblog",
+        // url: "http://localhost:5000/addblog",
+        url:"./addblog",
         type: "GET",
         // contentType: 'application/json',
         // data:"{}",
         // dataType: "JSON",
         success:function(data){
             console.log(data)
-            window.location.href="http://localhost:5000/addblog";
+            // window.location.href="http://localhost:5000/addblog";
+            window.location.href="./addblog";
         },
         error:function(jqXHR, textStatus, errorThrown){
             console.log(errorThrown)
@@ -42,14 +46,16 @@ $(document).on('click','#btnaddblog',function(){
 $(document).on('click','.revbtn',function(){
     // console.log($(this).parent().find('input').val())
     blogid = $(this).parent().find('input').val()
-    window.location.href="http://localhost:5000/revblog?blogid="+blogid
+    // window.location.href="http://localhost:5000/revblog?blogid="+blogid
+    window.location.href="./revblog?blogid="+blogid
 });
 
 $(document).on('click','.delbtn',function(){
     blogid = $(this).parent().find('input').val(),
     console.log(blogid),
     $.ajax({
-        url: "http://localhost:5000/delblog",
+        // url: "http://localhost:5000/delblog",
+        url: "./delblog",
         type: "POST",
         contentType: 'application/json',
         data:JSON.stringify({"blogid":blogid}),

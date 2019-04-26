@@ -2,10 +2,12 @@ import os
 from flask_script import Manager, Shell
 from app1 import create_app,db
 from flask_migrate import Migrate, MigrateCommand, upgrade
+from flask_cors import CORS
 #引入models
 from app1.models import User, Blog
 
 app = create_app(os.getenv('FLASK_CONFIG') or 'default')
+CORS(app, supports_credentials=True)
 
 
 # 构建指令，设置当前app受指令控制（即将指令绑定给指定app对象）

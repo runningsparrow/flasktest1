@@ -10,7 +10,8 @@ var geturlparm = function(){
 $(document).ready(
     blogid = geturlparm(),
     $.ajax({
-        url: "http://localhost:5000/revblog?blogid="+blogid,
+        // url: "http://localhost:5000/revblog?blogid="+blogid,
+        url: "./revblog?blogid="+blogid,
         type: "POST",
         // contentType: 'application/json',
         // data:"{}",
@@ -33,14 +34,16 @@ $(document).ready(
 
 $(document).on('click','#goindexbtn',function(){
     $.ajax({
-        url: "http://localhost:5000/",
+        // url: "http://localhost:5000/",
+        url: "./",
         type: "GET",
         // contentType: 'application/json',
         // data:"{}",
         // dataType: "JSON",
         success:function(data){
             console.log(data)
-            window.location.href="http://localhost:5000/";
+            // window.location.href="http://localhost:5000/";
+            window.location.href="./";
         },
         error:function(jqXHR, textStatus, errorThrown){
             console.log(errorThrown)
