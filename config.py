@@ -7,6 +7,7 @@ class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY') or '12345678' 
     SQLALCHEMY_TRACK_MODIFICATIONS = True
 
+    #作用？
     @staticmethod    
     def init_app(app):        
         print(app)

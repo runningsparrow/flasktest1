@@ -7,6 +7,7 @@ from flask_cors import CORS
 from app1.models import User, Blog
 
 app = create_app(os.getenv('FLASK_CONFIG') or 'default')
+#解决跨域问题
 CORS(app, supports_credentials=True)
 
 
