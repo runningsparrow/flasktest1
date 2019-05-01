@@ -39,33 +39,6 @@ def reg():
             # return render_template('register.html',**failed)
 
 
-# #注册
-# @main.route('/regprocess', methods=('GET','POST'))
-# def registerprocess():
-#     """
-#     用户注册
-#     :return: json
-#     """
-#     email = request.form.get('email')
-#     username = request.form.get('username')
-#     password = request.form.get('password')
-#     user = User(email=email, username=username, password=utils.set_password(password))
-#     result = User.add(User, user)
-#     if user.userid:
-#         returnUser = {
-#             'id': user.userid,
-#             'username': user.username,
-#             'email': user.email,
-#             'login_time': user.login_time
-#         }
-#         return jsonify(utils.trueReturn(returnUser, "用户注册成功"))
-#         # success = utils.trueReturn(returnUser, "用户注册成功")
-#         # return render_template('register.html',**success)
-#     else:
-#         return jsonify(utils.falseReturn('', '用户注册失败'))
-#         # failed = utils.falseReturn('', '用户注册失败')
-#         # return render_template('register.html',**failed)
-
 
 #登陆
 @main.route('/login', methods=('GET','POST'))
@@ -74,12 +47,15 @@ def login():
     用户登录
     :return: json
     """
-    username = request.form.get('username')
-    password = request.form.get('password')
-    if (not username or not password):
-        return jsonify(utils.falseReturn('', '用户名和密码不能为空'))
-    else:
-        return Auth.authenticate(Auth, username, password)
+    if request.method == "GET":
+        return render_template('login.html')
+    if request.method == "POST":
+        username = request.form.get('username')
+        password = request.form.get('password')
+        if (not username or not password):
+            return jsonify(utils.falseReturn('', '用户名和密码不能为空'))
+        else:
+            return Auth.authenticate(Auth, username, password)
 
 
 #获取用户信息

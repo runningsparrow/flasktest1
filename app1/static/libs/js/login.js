@@ -4,6 +4,7 @@ $(document).ready(
             target:        '#logresult',   // 用服务器返回的数据 更新 id为output1的内容.
             beforeSubmit:  showRequest,  // 提交前
             success:       showResponse,  // 提交后 
+            error: showerror,
             //另外的一些属性: 
             //url:       url         // 默认是form的action，如果写的话，会覆盖from的action. 
             //type:      type        // 默认是form的method，如果写的话，会覆盖from的method.('get' or 'post').
@@ -16,7 +17,7 @@ $(document).ready(
         }; 
      
         //'ajaxForm' 方式的表单 .
-        $('#regform').ajaxForm(options);  
+        $('#logform').ajaxForm(options);  
         //或者 'ajaxSubmit' 方式的提交.
         //$('#myForm').submit(function() { 
         //    $(this).ajaxSubmit(options); 
@@ -27,26 +28,34 @@ $(document).ready(
 
 // 提交前
 function showRequest(formData, jqForm, options) { 
-// formdata是数组对象,在这里，我们使用$.param()方法把他转化为字符串.
-//   var queryString = $.param(formData); //组装数据，插件会自动提交数据
-//   alert(queryString); //类似 ： name=1&add=2  
-// alert(formData)
+    // formdata是数组对象,在这里，我们使用$.param()方法把他转化为字符串.
+    //   var queryString = $.param(formData); //组装数据，插件会自动提交数据
+    //   alert(queryString); //类似 ： name=1&add=2  
+    // alert(formData)
     //return true; 
+    
 } 
 
 //提交后
 function showResponse(responseText, statusText)  { 
-//    alert('状态: ' + statusText + '\n 返回的内容是: \n' + responseText); 
-console.log('状态: ' + statusText + '\n 返回的内容是: \n' + responseText);
-// var jsondata = JSON.parse(responseText);
+    //    alert('状态: ' + statusText + '\n 返回的内容是: \n' + responseText); 
+    console.log('状态: ' + statusText + '\n 返回的内容是: \n' + responseText);
+    // var jsondata = JSON.parse(responseText);
 
-console.log(responseText["msg"]);
-console.log(responseText["status"]);
-console.log(responseText["data"]);
+    console.log(responseText["msg"]);
+    console.log(responseText["status"]);
+    console.log(responseText["data"]);
 
 
-$('#regresult').html(responseText["msg"])   
+    $('#logresult').html(responseText["msg"])   
 } 
+
+function showerror(responseText, statusText){
+    console.log('状态: ' + statusText + '\n 返回的内容是: \n' + responseText);
+    console.log(responseText["msg"]);
+    console.log(responseText["status"]);
+    console.log(responseText["data"]);
+}
 
 $(document).on('click','#goindexbtn',function(){
 $.ajax({

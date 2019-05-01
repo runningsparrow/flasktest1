@@ -94,12 +94,12 @@ class Auth():
         if (userInfo is None):
             return jsonify(utils.falseReturn('', '找不到用户'))
         else:
-            if (check_password(User, userInfo.password, password)):
+            if (utils.check_password(userInfo.password, password)):
                 login_time = int(time.time())
                 userInfo.login_time = login_time
                 User.update(User)
-                token = self.encode_auth_token(userInfo.id, login_time)
-                return jsonify(utlls.trueReturn(token.decode(), '登录成功'))
+                token = self.encode_auth_token(userInfo.userid, login_time)
+                return jsonify(utils.trueReturn(token.decode(), '登录成功'))
             else:
                 return jsonify(utils.falseReturn('', '密码不正确'))
 
