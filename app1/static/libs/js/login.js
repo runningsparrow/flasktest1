@@ -48,6 +48,7 @@ function showResponse(responseText, statusText)  {
 
 
     $('#logresult').html(responseText["msg"])   
+    $('#token').html(responseText["data"]) 
 } 
 
 function showerror(responseText, statusText){
