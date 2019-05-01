@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="witdh=device-width, initial-scale=1.0">
     <title>{% block headtitle %}{% endblock %}</title>
+    <link rel="icon" href="../static/libs/image/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../static/libs/image/favicon.ico" type="image/x-icon">
     <link href="../static/libs/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
     <link href="../static/libs/bower_components/bootstrap-treeview/src/css/bootstrap-treeview.css">
     {% block selfcss%} {% endblock %}
@@ -26,6 +28,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="#" id="navaddblog">添加</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" id="navreg">注册</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" id="navlog">登陆</a>
+            </li>
         </ul> 
     </div>
 </nav>    
@@ -42,6 +50,7 @@
 </div>
 </div>
 <script src="../static/libs/node_modules/jquery/dist/jquery.js"></script>
+<script src="../static/libs/node_modules/jquery-form/dist/jquery.form.min.js"></script>
 <script src="../static/libs/node_modules/bootstrap/dist/js/bootstrap.js"></script>
 <script src="../static/libs/bower_components/bootstrap-treeview/src/js/bootstrap-treeview.js"></script>
 <script src="../static/libs/js/base.js"></script>

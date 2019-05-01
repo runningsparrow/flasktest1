@@ -1,4 +1,5 @@
 from werkzeug.security import generate_password_hash, check_password_hash
+from sqlalchemy.exc import SQLAlchemyError
 
 #password
 #加密用户注册时填写的密码和在用户登录时检查用户密码是否正确。

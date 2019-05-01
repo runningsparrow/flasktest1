@@ -8,7 +8,7 @@
 {% block mainbody %}
     <h1 class="page-header">注册<small> 用户 </small></h1>
     <div class="col-xs-6 col-md-4 col-center-block">
-    <form class="form-horizontal" role="form" action="" method="POST">
+    <form class="form-horizontal" role="form" action="/reg" method="POST" id="regform">
         <div class="form-group">
             <label for="username" class="control-label">用户名</label>
             <div class="">
@@ -39,6 +39,7 @@
         </div>
     </form>
     </div>
+    <div id="regresult"></div>
 {% endblock %}
     
 {% block selfjs %}

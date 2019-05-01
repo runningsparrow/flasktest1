@@ -8,38 +8,68 @@ from app1.models import User
 from app1.auth.auths import Auth
 from app1 import utils
 
-
+#注册
 @main.route('/reg', methods=('GET','POST'))
 def reg():
-    return render_template('register.html')
+    if request.method == "GET":
+        return render_template('register.html')
+    if request.method == "POST":
+        """
+        用户注册
+        :return: json
+        """
+        email = request.form.get('email')
+        username = request.form.get('username')
+        password = request.form.get('password')
+        user = User(email=email, username=username, password=utils.set_password(password))
+        result = User.add(User, user)
+        if user.userid:
+            returnUser = {
+                'id': user.userid,
+                'username': user.username,
+                'email': user.email,
+                'login_time': user.login_time
+            }
+            return jsonify(utils.trueReturn(returnUser, "用户注册成功"))
+            # success = utils.trueReturn(returnUser, "用户注册成功")
+            # return render_template('register.html',**success)
+        else:
+            return jsonify(utils.falseReturn('', '用户注册失败'))
+            # failed = utils.falseReturn('', '用户注册失败')
+            # return render_template('register.html',**failed)
 
-#注册
-@main.route('/regprocess', methods=('GET','POST'))
-def registerprocess():
-    """
-    用户注册
-    :return: json
-    """
-    email = request.form.get('email')
-    username = request.form.get('username')
-    password = request.form.get('password')
-    user = User(email=email, username=username, password=User.set_password(Users, password))
-    result = User.add(Users, user)
-    if user.id:
-        returnUser = {
-            'id': user.id,
-            'username': user.username,
-            'email': user.email,
-            'login_time': user.login_time
-        }
-        return jsonify(utils.trueReturn(returnUser, "用户注册成功"))
-    else:
-        return jsonify(utils.falseReturn('', '用户注册失败'))
+
+# #注册
+# @main.route('/regprocess', methods=('GET','POST'))
+# def registerprocess():
+#     """
+#     用户注册
+#     :return: json
+#     """
+#     email = request.form.get('email')
+#     username = request.form.get('username')
+#     password = request.form.get('password')
+#     user = User(email=email, username=username, password=utils.set_password(password))
+#     result = User.add(User, user)
+#     if user.userid:
+#         returnUser = {
+#             'id': user.userid,
+#             'username': user.username,
+#             'email': user.email,
+#             'login_time': user.login_time
+#         }
+#         return jsonify(utils.trueReturn(returnUser, "用户注册成功"))
+#         # success = utils.trueReturn(returnUser, "用户注册成功")
+#         # return render_template('register.html',**success)
+#     else:
+#         return jsonify(utils.falseReturn('', '用户注册失败'))
+#         # failed = utils.falseReturn('', '用户注册失败')
+#         # return render_template('register.html',**failed)
 
 
 #登陆
-@main.route('/loginprocess', methods=('GET','POST'))
-def loginprocess():
+@main.route('/login', methods=('GET','POST'))
+def login():
     """
     用户登录
     :return: json
@@ -63,7 +93,7 @@ def userget():
     if (result['status'] and result['data']):
         user = User.get(User, result['data'])
         returnUser = {
-            'id': user.id,
+            'id': user.userid,
             'username': user.username,
             'email': user.email,
             'login_time': user.login_time

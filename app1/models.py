@@ -17,8 +17,8 @@ class User(db.Model):
         self.password = password
         self.email = email
 
-    def get(self, id):
-        return self.query.filter_by(id=id).first()
+    def get(self, userid):
+        return self.query.filter_by(userid=userid).first()
 
     def add(self, user):
         db.session.add(user)
@@ -27,8 +27,8 @@ class User(db.Model):
     def update(self):
         return session_commit(db)
 
-    def delete(self, id):
-        self.query.filter_by(id=id).delete()
+    def delete(self, userid):
+        self.query.filter_by(userid=userid).delete()
         return session_commit(db)
 
 class Blog(db.Model):

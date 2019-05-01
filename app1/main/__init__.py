@@ -5,6 +5,6 @@ main = Blueprint('main', __name__)
 from app1.users import users_api
 
 #将views 和 error 引入进蓝图
-from . import index, errors, register, addblog, bloglist, revblog, delblog, users_api
+from . import index, errors, addblog, bloglist, revblog, delblog, users_api
 
 
